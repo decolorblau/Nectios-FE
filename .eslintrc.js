@@ -8,6 +8,7 @@ module.exports = {
     parser: "babel-eslint",
   },
   rules: {
+    quotes: [2, "double", "avoid-escape"],
     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off",
     "no-param-reassign": "off",
@@ -17,7 +18,6 @@ module.exports = {
     "import/extensions": "off",
     "lines-between-class-members": "off",
   },
-  quotes: [2, "double", "avoid-escape"],
   overrides: [
     {
       files: ["**/__tests__/*.{j,t}s?(x)", "**/tests/unit/**/*.spec.{j,t}s?(x)"],
