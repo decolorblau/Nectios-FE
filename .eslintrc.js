@@ -17,6 +17,7 @@ module.exports = {
     "import/extensions": "off",
     "lines-between-class-members": "off",
   },
+  quotes: [2, "double", "avoid-escape"],
   overrides: [
     {
       files: ["**/__tests__/*.{j,t}s?(x)", "**/tests/unit/**/*.spec.{j,t}s?(x)"],
