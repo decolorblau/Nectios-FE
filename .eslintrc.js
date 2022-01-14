@@ -18,6 +18,7 @@ module.exports = {
     "import/extensions": "off",
     "lines-between-class-members": "off",
     "import/prefer-default-export": "off",
+    "newline-per-chained-call": "error",
   },
   overrides: [
     {
