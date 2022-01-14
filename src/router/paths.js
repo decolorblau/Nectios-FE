@@ -1,7 +1,7 @@
 const paths = {
   home: "/",
   login: "/login",
-  notFound: "/404",
+  notFound: "/:pathMatch(.*)*",
 };
 
 export default paths;
