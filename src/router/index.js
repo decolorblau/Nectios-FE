@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from "vue-router";
 import Home from "../views/Home.vue";
-import Login from "../views/Login.vue";
-import NotFound from "../views/NotFound.vue";
+import Login from "../views/LoginView.vue";
+import NotFound from "../views/NotFoundView.vue";
 import paths from "./paths";
 
 const { home, notFound, login } = paths;
