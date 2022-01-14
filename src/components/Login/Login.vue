@@ -1,120 +1,67 @@
 <template>
-  <v-container>
-    <v-row class="text-center">
-      <v-col class="mb-4">
-        <h1 class="display-2 font-weight-bold mb-3">
-          <div>LOGIN</div>
-        </h1>
-
-        <p class="subheading font-weight-regular">
-          For help and collaboration with other Vuetify developers,
-          <br />please join our online
-          <a href="https://community.vuetifyjs.com" target="_blank">Discord Community</a>
-        </p>
-      </v-col>
-
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-5">What's next?</h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(next, i) in whatsNext"
-            :key="i"
-            :href="next.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ next.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-5">Important Links</h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(link, i) in importantLinks"
-            :key="i"
-            :href="link.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ link.text }}
-          </a>
-        </v-row>
-      </v-col>
-
-      <v-col class="mb-5" cols="12">
-        <h2 class="headline font-weight-bold mb-5">Ecosystem</h2>
-
-        <v-row justify="center">
-          <a
-            v-for="(eco, i) in ecosystem"
-            :key="i"
-            :href="eco.href"
-            class="subheading mx-3"
-            target="_blank"
-          >
-            {{ eco.text }}
-          </a>
-        </v-row>
-      </v-col>
-    </v-row>
-  </v-container>
+  <v-row justify="center">
+    <v-col cols="10" sm="8" md="6" lg="4">
+      <v-card ref="form" class="pa-3 login-card">
+        <v-card-title class="login mt-5 mb-4">
+          <h2 class="login__title">Login</h2>
+        </v-card-title>
+        <v-card-text>
+          <v-text-field
+            ref="name"
+            v-model="name"
+            :rules="[() => !!name || 'This field is required']"
+            :error-messages="errorMessages"
+            label="Email"
+            required
+            placeholder="example@nectios.com"
+          ></v-text-field>
+          <v-text-field
+            ref="password"
+            v-model="password"
+            :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+            :rules="[
+              () => !!password || 'This field is required',
+              () => (!!password && password.length >= 8) || 'At least 8 characters',
+              passwordCheck,
+            ]"
+            label="Password"
+            hint="At least 8 characters"
+            placeholder="password example"
+            required
+          ></v-text-field>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn class="mb-1 mr-2" :disabled="!valid" color="#FFECB3" text @click="submit">
+            Submit
+          </v-btn>
+        </v-card-actions>
+      </v-card>
+    </v-col>
+  </v-row>
 </template>
 
 <script>
-export default {
-  name: "Login",
+import { defineComponent } from "vue";
 
-  data: () => ({
-    ecosystem: [
-      {
-        text: "vuetify-loader",
-        href: "https://github.com/vuetifyjs/vuetify-loader",
-      },
-      {
-        text: "github",
-        href: "https://github.com/vuetifyjs/vuetify",
-      },
-      {
-        text: "awesome-vuetify",
-        href: "https://github.com/vuetifyjs/awesome-vuetify",
-      },
-    ],
-    importantLinks: [
-      {
-        text: "Chat",
-        href: "https://community.vuetifyjs.com",
-      },
-      {
-        text: "Made with Vuetify",
-        href: "https://madewithvuejs.com/vuetify",
-      },
-      {
-        text: "Twitter",
-        href: "https://twitter.com/vuetifyjs",
-      },
-      {
-        text: "Articles",
-        href: "https://medium.com/vuetify",
-      },
-    ],
-    whatsNext: [
-      {
-        text: "Explore components",
-        href: "https://vuetifyjs.com",
-      },
-      {
-        text: "Roadmap",
-        href: "https://vuetifyjs.com/introduction/roadmap/",
-      },
-      {
-        text: "Frequently Asked Questions",
-        href: "https://vuetifyjs.com/getting-started/frequently-asked-questions",
-      },
-    ],
-  }),
-};
+export default defineComponent({
+  name: "Login",
+});
 </script>
+
+<style lang="scss" scoped>
+.login {
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  &__title {
+    font-size: 24px;
+    font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode",
+      Geneva, Verdana, sans-serif;
+  }
+}
+.login-card {
+  -webkit-box-shadow: 0 0 10px #ffecb3;
+  box-shadow: 0 0 10px #ffecb3;
+}
+</style>
