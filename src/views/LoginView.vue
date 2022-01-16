@@ -6,6 +6,7 @@
 
 <script>
 import { defineComponent } from "vue";
+import { mapActions, mapGetters, mapState } from "vuex";
 import Login from "../components/Login/Login.vue";
 
 export default defineComponent({
@@ -13,6 +14,19 @@ export default defineComponent({
 
   components: {
     Login,
+  },
+  computed: {
+    ...mapState(["user"]),
+  },
+  methods: {
+    ...mapActions(["checkToken"]),
+    ...mapGetters(["redirectToHome"]),
+  },
+  mounted() {
+    this.checkToken();
+    if (this.user.isAuthenticated) {
+      this.redirectToHome();
+    }
   },
 });
 </script>
