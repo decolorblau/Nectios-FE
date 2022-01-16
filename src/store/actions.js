@@ -10,6 +10,14 @@ const actions = {
     commit("loadUser", userInfo);
     return status;
   },
+  checkToken({ commit }) {
+    try {
+      const token = JSON.parse(localStorage.getItem("token") || "");
+      commit("loadUser", jwtDecode(token.token));
+    } catch {
+      return "User not logged in";
+    }
+  },
 };
 
 export default actions;
