@@ -29,5 +29,16 @@ describe("Given a LoginView component", () => {
 
       expect(chekTokenMock).toHaveBeenCalled();
     });
+    describe("When the user is not Authenticated", () => {
+      test("Then redirectToHome action not should be called", () => {
+        shallowMount(LoginView, {
+          global: {
+            plugins: [router, store],
+          },
+        });
+
+        expect(redirectToHomeMock).not.toHaveBeenCalled();
+      });
+    });
   });
 });
