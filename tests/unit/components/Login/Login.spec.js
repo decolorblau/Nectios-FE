@@ -1,8 +1,11 @@
 import Login from "@/components/Login/Login.vue";
-import { shallowMount } from "@vue/test-utils";
+import { shallowMount, mount } from "@vue/test-utils";
+import { createStore } from "vuex";
+import router from "@/router";
+import state from "../../mockState";
 
 describe("Given a Login component", () => {
-  describe("when is rendered", () => {
+  describe("When is rendered", () => {
     test("Then it matches de snapshot", () => {
       const wrapper = shallowMount(Login);
       expect(wrapper.html()).toMatchSnapshot();
@@ -29,6 +32,28 @@ describe("Given a Login component", () => {
       const PasswordInput = wrapper.findAll("v-text-field");
       const labelPassword = PasswordInput[2].attributes("label");
       expect(labelPassword).toBe("Password");
+    });
+  });
+  describe("When the form is submitted", () => {
+    test("Then it should invoke onSubmit", () => {
+      const store = createStore({
+        state() {
+          return state;
+        },
+        actions: { loginUser: jest.fn() },
+      });
+
+      const wrapper = mount(Login, {
+        global: {
+          plugins: [router, store],
+        },
+      });
+
+      const onSubmit = jest.fn();
+      onSubmit();
+      const form = wrapper.get("v-card");
+      form.trigger("submit");
+      expect(onSubmit).toHaveBeenCalled();
     });
   });
 });
