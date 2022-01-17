@@ -1,15 +1,5 @@
 import Login from "@/components/Login/Login.vue";
-import Vue from "vue";
-import Vuetify from "vuetify";
-import { shallowMount, createLocalVue } from "@vue/test-utils";
-
-Vue.use(Vuetify);
-const localVue = createLocalVue;
-let vuetify;
-
-beforeEach(() => {
-  vuetify = new Vuetify();
-});
+import { shallowMount } from "@vue/test-utils";
 
 describe("Given a Login component", () => {
   describe("when is rendered", () => {
@@ -22,15 +12,23 @@ describe("Given a Login component", () => {
       const h2Value = wrapper.find("h2").text();
       expect(h2Value).toBe("Login");
     });
-
     test("Then it should render Email input", () => {
-      const wrapper = shallowMount(Login, {
-        localVue,
-        vuetify,
-      });
-      const textInput = wrapper.find(".v-text-field");
-      const emailInput = textInput.find('label[for="email]');
-      expect(emailInput).toBeTruthy();
+      const wrapper = shallowMount(Login);
+      const EmailInput = wrapper.findAll("v-text-field");
+      const labelEmail = EmailInput[0].attributes("label");
+      expect(labelEmail).toBe("Email");
+    });
+    test("Then it should render clientKey input", () => {
+      const wrapper = shallowMount(Login);
+      const ClientKeyInput = wrapper.findAll("v-text-field");
+      const labelClientKey = ClientKeyInput[1].attributes("label");
+      expect(labelClientKey).toBe("Client Key");
+    });
+    test("Then it should render Password input", () => {
+      const wrapper = shallowMount(Login);
+      const PasswordInput = wrapper.findAll("v-text-field");
+      const labelPassword = PasswordInput[2].attributes("label");
+      expect(labelPassword).toBe("Password");
     });
   });
 });
