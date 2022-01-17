@@ -40,5 +40,17 @@ describe("Given a LoginView component", () => {
         expect(redirectToHomeMock).not.toHaveBeenCalled();
       });
     });
+    describe("When the user is Authenticated", () => {
+      test("Then redirectToHome action should be called", () => {
+        state.user.isAuthenticated = true;
+        shallowMount(LoginView, {
+          global: {
+            plugins: [router, store],
+          },
+        });
+
+        expect(redirectToHomeMock).toHaveBeenCalled();
+      });
+    });
   });
 });
