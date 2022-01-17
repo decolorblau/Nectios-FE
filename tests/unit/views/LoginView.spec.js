@@ -53,4 +53,14 @@ describe("Given a LoginView component", () => {
       });
     });
   });
+  describe("when is rendered", () => {
+    test("Then it matches de snapshot", () => {
+      const wrapper = mount(LoginView, {
+        global: {
+          plugins: [router, store],
+        },
+      });
+      expect(wrapper.html()).toMatchSnapshot();
+    });
+  });
 });
