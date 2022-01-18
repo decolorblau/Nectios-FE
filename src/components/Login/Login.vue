@@ -76,7 +76,7 @@ export default defineComponent({
     ...mapState(["user"]),
   },
   methods: {
-    ...mapActions(["loginUser"]),
+    ...mapActions(["loginUser", "getClientKey"]),
     ...mapGetters(["redirectToHome"]),
     async onSubmit() {
       try {
@@ -91,6 +91,7 @@ export default defineComponent({
           const status = await this.loginUser(userData);
 
           if (status === 200) {
+            this.getClientKey(this.clientKey);
             this.redirectToHome();
           } else {
             this.wrongCredentials = true;
