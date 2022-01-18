@@ -4,9 +4,11 @@ const state = {
     isAuthenticated: false,
     clientKey: "",
     user: {
+      email: "",
+      name: "",
+      profilePhoto: "",
       role: "",
-      sub: "",
-      iat: "",
+      surname: "",
     },
   },
   currentProduct: {

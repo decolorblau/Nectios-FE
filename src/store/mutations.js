@@ -8,14 +8,19 @@ const mutations = {
       isAuthenticated: false,
       clientKey: "",
       user: {
+        email: "",
+        name: "",
+        profilePhoto: "",
         role: "",
-        sub: "",
-        iat: "",
+        surname: "",
       },
     };
   },
   getProducts(state, payload) {
     state.products = [...payload];
+  },
+  getUsers(state, payload) {
+    state.user.user = payload;
   },
   newClientKey(state, payload) {
     state.user.clientKey = payload;
