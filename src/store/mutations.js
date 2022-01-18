@@ -1,14 +1,24 @@
 const mutations = {
   loadUser(state, payload) {
-    state.user = payload;
+    state.user.user = payload;
     state.user.isAuthenticated = true;
   },
   logoutUser(state) {
-    state.user.user = {
-      email: "",
+    state.user = {
+      isAuthenticated: false,
       clientKey: "",
+      user: {
+        role: "",
+        sub: "",
+        iat: "",
+      },
     };
-    state.user.isAuthenticated = false;
+  },
+  getProducts(state, payload) {
+    state.products = [...payload];
+  },
+  newClientKey(state, payload) {
+    state.user.clientKey = payload;
   },
 };
 
