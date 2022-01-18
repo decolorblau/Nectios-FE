@@ -15,7 +15,10 @@
 </template>
 
 <script>
-export default {};
+export default {
+  name: "productCard",
+  props: ["product"],
+};
 </script>
 
 <style></style>

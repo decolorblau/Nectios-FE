@@ -2,10 +2,21 @@ const state = {
   products: [],
   user: {
     isAuthenticated: false,
+    clientKey: "",
     user: {
-      email: "",
-      clientKey: "",
+      role: "",
+      sub: "",
+      iat: "",
     },
+  },
+  currentProduct: {
+    id: "",
+    client_id: "",
+    description: "",
+    key: "",
+    name: "",
+    price: "",
+    product_photo: "",
   },
 };
 
