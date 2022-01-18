@@ -31,13 +31,13 @@ export default defineComponent({
     ...mapGetters(["redirectToLogin"]),
   },
 
-  created() {
+  mounted() {
     this.getProducts();
   },
   components: {
     ProductCard,
   },
-  mounted() {
+  beforeMount() {
     this.checkToken();
     if (!this.user.isAuthenticated) {
       this.redirectToLogin();
