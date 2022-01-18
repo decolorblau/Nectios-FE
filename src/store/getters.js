@@ -8,6 +8,9 @@ const getters = {
   redirectToLogin() {
     router.push(paths.login);
   },
+  redirectToUser() {
+    router.push(paths.user);
+  },
 };
 
 export default getters;
