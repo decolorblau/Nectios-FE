@@ -18,6 +18,10 @@ const actions = {
       return "User not logged in";
     }
   },
+  async logoutUser({ commit }) {
+    localStorage.removeItem("token");
+    commit("logoutUser");
+  },
 };
 
 export default actions;
