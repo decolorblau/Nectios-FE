@@ -28,20 +28,32 @@ const actions = {
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { clientKey } = JSON.parse(localStorage.getItem("clientKey") || "");
-      const uri = `${process.env.VUE_APP_API_URL}/products?${clientKey}`;
+      const uri = `${process.env.VUE_APP_API_URL}/products?clientKey=${clientKey}`;
       const encoded = encodeURI(uri);
-      const { data } = await axios.get(
-        encoded,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-          // eslint-disable-next-line comma-dangle
-        }
-        // eslint-disable-next-line comma-dangle
-      );
+      const { data } = await axios.get(encoded, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
       const newData = data[0].data;
       commit("getProducts", newData);
+    } catch {
+      return "Error";
+    }
+  },
+  async getUser({ commit }) {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { clientKey } = JSON.parse(localStorage.getItem("clientKey") || "");
+      const uri = `${process.env.VUE_APP_API_URL}/users?clientKey=${clientKey}`;
+      const encoded = encodeURI(uri);
+      const { data } = await axios.get(encoded, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const [newData] = data[0].data;
+      commit("getUsers", newData);
     } catch {
       return "Error";
     }
