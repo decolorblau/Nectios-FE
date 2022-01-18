@@ -7,6 +7,8 @@ const actions = {
     const token = data;
     const userInfo = jwtDecode(token);
     localStorage.setItem("token", JSON.stringify({ token }));
+    const { clientKey } = user;
+    localStorage.setItem("clientKey", JSON.stringify({ clientKey }));
     commit("loadUser", userInfo);
     return status;
   },
@@ -22,10 +24,11 @@ const actions = {
     localStorage.removeItem("token");
     commit("logoutUser");
   },
-  async getProducts({ commit, state }) {
+  async getProducts({ commit }) {
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
-      const uri = `${process.env.VUE_APP_API_URL}/products?${state.user.clientKey}`;
+      const { clientKey } = JSON.parse(localStorage.getItem("clientKey") || "");
+      const uri = `${process.env.VUE_APP_API_URL}/products?${clientKey}`;
       const encoded = encodeURI(uri);
       const { data } = await axios.get(
         encoded,
@@ -42,9 +45,6 @@ const actions = {
     } catch {
       return "Error";
     }
-  },
-  getClientKey({ commit }, clientKey) {
-    commit("newClientKey", clientKey);
   },
 };
 
