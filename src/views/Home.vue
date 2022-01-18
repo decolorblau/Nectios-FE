@@ -6,6 +6,10 @@
           <v-col v-for="n in 3" :key="n">
             <ProductCard />
           </v-col>
+          <h1 v-for="product in products" :key="product.id">
+            <h2>{{ product.name }}</h2>
+            <p>{{ product.description }}</p>
+          </h1>
         </v-row>
       </v-container>
     </div>
@@ -19,16 +23,19 @@ import ProductCard from "../components/ProductCard/ProductCard.vue";
 
 export default defineComponent({
   name: "Home",
-
-  components: {
-    ProductCard,
-  },
   computed: {
-    ...mapState(["user"]),
+    ...mapState(["user", "products"]),
   },
   methods: {
-    ...mapActions(["checkToken"]),
+    ...mapActions(["checkToken", "getProducts"]),
     ...mapGetters(["redirectToLogin"]),
+  },
+
+  created() {
+    this.getProducts();
+  },
+  components: {
+    ProductCard,
   },
   mounted() {
     this.checkToken();
