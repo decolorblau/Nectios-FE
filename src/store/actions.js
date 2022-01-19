@@ -22,6 +22,7 @@ const actions = {
   },
   async logoutUser({ commit }) {
     localStorage.removeItem("token");
+    localStorage.removeItem("clientKey");
     commit("logoutUser");
   },
   async getProducts({ commit }) {
@@ -36,6 +37,7 @@ const actions = {
         },
       });
       const newData = data[0].data;
+      console.log(newData);
       commit("getProducts", newData);
     } catch {
       return "Error";
@@ -57,6 +59,66 @@ const actions = {
     } catch {
       return "Error";
     }
+  },
+  async getUserComments({ commit }, products) {
+    console.log("holaaa");
+    try {
+      const { userComments } = JSON.parse(localStorage.getItem("userComments") || "");
+      console.log(userComments);
+
+      let newData = [];
+      if (userComments === undefined) {
+        console.log("iiiiiiiii");
+
+        products.forEach(async (product) => {
+          const productKey = product.key;
+          const { token } = JSON.parse(localStorage.getItem("token") || "");
+          const { clientKey } = JSON.parse(localStorage.getItem("clientKey") || "");
+          const uri = `${process.env.VUE_APP_API_URL}/comments?clientKey=${clientKey}&productKey=${productKey}`;
+          console.log(uri);
+          const encoded = encodeURI(uri);
+          const { data } = await axios.get(encoded, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+          console.log("aaaaaa", data);
+          newData = data[0].data;
+          commit("getUserComments", newData);
+        });
+      }
+    } catch {
+      return "Error";
+    }
+  },
+  async getProductComments({ commit }, productKey) {
+    try {
+      const newData = [];
+      this.getComments(productKey);
+      commit("getProductComments", newData);
+    } catch {
+      return "Error";
+    }
+  },
+  async getComments(productKey) {
+    console.log("holaaaaaaaaa", productKey);
+    const { token } = JSON.parse(localStorage.getItem("token") || "");
+    const { clientKey } = JSON.parse(localStorage.getItem("clientKey") || "");
+    const uri = `${process.env.VUE_APP_API_URL}/comments?clientKey=${clientKey}&productKey=${productKey}`;
+    console.log(uri);
+    const encoded = encodeURI(uri);
+    const { data } = await axios.get(encoded, {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
+    console.log("aaaaaa", data);
+    const newData = data[0].data;
+    return newData;
+  },
+  getLocalComments({ commit }) {
+    const { userComments } = JSON.parse(localStorage.getItem("userComments") || "");
+    commit("getLocalComments", userComments);
   },
 };
 

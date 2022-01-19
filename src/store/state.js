@@ -1,5 +1,6 @@
 const state = {
   products: [],
+  comments: [],
   user: {
     isAuthenticated: false,
     clientKey: "",
@@ -19,6 +20,7 @@ const state = {
     name: "",
     price: "",
     product_photo: "",
+    comments: [],
   },
 };
 
