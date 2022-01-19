@@ -37,7 +37,6 @@ const actions = {
         },
       });
       const newData = data[0].data;
-      console.log(newData);
       commit("getProducts", newData);
     } catch {
       return "Error";
@@ -61,28 +60,22 @@ const actions = {
     }
   },
   async getUserComments({ commit }, products) {
-    console.log("holaaa");
     try {
       const { userComments } = JSON.parse(localStorage.getItem("userComments") || "");
-      console.log(userComments);
 
       let newData = [];
       if (userComments === undefined) {
-        console.log("iiiiiiiii");
-
         products.forEach(async (product) => {
           const productKey = product.key;
           const { token } = JSON.parse(localStorage.getItem("token") || "");
           const { clientKey } = JSON.parse(localStorage.getItem("clientKey") || "");
           const uri = `${process.env.VUE_APP_API_URL}/comments?clientKey=${clientKey}&productKey=${productKey}`;
-          console.log(uri);
           const encoded = encodeURI(uri);
           const { data } = await axios.get(encoded, {
             headers: {
               Authorization: `Bearer ${token}`,
             },
           });
-          console.log("aaaaaa", data);
           newData = data[0].data;
           commit("getUserComments", newData);
         });
@@ -101,18 +94,15 @@ const actions = {
     }
   },
   async getComments(productKey) {
-    console.log("holaaaaaaaaa", productKey);
     const { token } = JSON.parse(localStorage.getItem("token") || "");
     const { clientKey } = JSON.parse(localStorage.getItem("clientKey") || "");
     const uri = `${process.env.VUE_APP_API_URL}/comments?clientKey=${clientKey}&productKey=${productKey}`;
-    console.log(uri);
     const encoded = encodeURI(uri);
     const { data } = await axios.get(encoded, {
       headers: {
         Authorization: `Bearer ${token}`,
       },
     });
-    console.log("aaaaaa", data);
     const newData = data[0].data;
     return newData;
   },
