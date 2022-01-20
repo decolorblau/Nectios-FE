@@ -1,6 +1,6 @@
 <template>
   <div class="home">
-    <v-container fill-height class="grid-list">
+    <v-container fill-height align="center" class="grid-list">
       <v-row no-gutters wrap style="height: 150px">
         <v-col
           d-flex
@@ -11,6 +11,7 @@
           md="4"
           lg="3"
           xl="2"
+          align-self="center"
         >
           <ProductCard :product="product" />
         </v-col>
@@ -51,9 +52,10 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .home {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  height: auto;
+  min-height: 100%;
+  background-color: rgb(250, 250, 250);
+  font-family: Helvetica, "Hilda-Regular", Arial, sans-serif;
 }
 .grid {
   width: 90%;
