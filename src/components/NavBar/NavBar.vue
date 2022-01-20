@@ -38,7 +38,7 @@
         </v-btn>
       </div>
     </v-app-bar>
-    <v-navigation-drawer v-model="drawer" absolute temporary>
+    <v-navigation-drawer v-model="drawer" absolute temporary class="hidden-md-and-up">
       <v-list nav dense>
         <div active-class="deep-purple--text text--accent-4">
           <v-list-item class="pl-7" title="Home" @click="redirectToHome()"></v-list-item>
