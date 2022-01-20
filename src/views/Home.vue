@@ -3,13 +3,10 @@
     <div>
       <v-container class="grey lighten-5 mb-6">
         <v-row no-gutters style="height: 150px">
-          <v-col v-for="n in 3" :key="n">
-            <ProductCard />
+          <v-col v-for="(product, i) in products" :key="i">
+            <ProductCard :product="product" />
           </v-col>
-          <h1 v-for="product in products" :key="product.id">
-            <h2>{{ product.name }}</h2>
-            <p>{{ product.description }}</p>
-          </h1>
+          <h1 v-for="product in products" :key="product.id"></h1>
         </v-row>
       </v-container>
     </div>
@@ -33,6 +30,7 @@ export default defineComponent({
 
   mounted() {
     this.getProducts();
+    console.log(this.products);
   },
   components: {
     ProductCard,
