@@ -35,7 +35,6 @@ export default defineComponent({
 
   mounted() {
     this.getProducts();
-    console.log(this.products);
   },
   components: {
     ProductCard,
