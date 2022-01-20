@@ -1,15 +1,20 @@
 <template>
   <div class="home">
-    <div>
-      <v-container class="grey lighten-5 mb-6">
-        <v-row no-gutters style="height: 150px">
-          <v-col v-for="(product, i) in products" :key="i">
-            <ProductCard :product="product" />
-          </v-col>
-          <h1 v-for="product in products" :key="product.id"></h1>
-        </v-row>
-      </v-container>
-    </div>
+    <v-container class="grey lighten-5 grid">
+      <v-row no-gutters style="height: 150px">
+        <v-col
+          v-for="(product, i) in products"
+          :key="i"
+          cols="12"
+          sm="6"
+          md="3"
+          lg="4"
+          class="ma-2"
+        >
+          <ProductCard :product="product" />
+        </v-col>
+      </v-row>
+    </v-container>
   </div>
 </template>
 
@@ -47,6 +52,11 @@ export default defineComponent({
 <style lang="scss" scoped>
 .home {
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.grid {
+  width: 90%;
+  height: 75%;
 }
 </style>
