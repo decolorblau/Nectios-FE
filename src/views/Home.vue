@@ -1,15 +1,16 @@
 <template>
   <div class="home">
-    <v-container class="grey lighten-5 grid">
-      <v-row no-gutters style="height: 150px">
+    <v-container fill-height class="grid-list">
+      <v-row no-gutters wrap style="height: 150px">
         <v-col
+          d-flex
           v-for="(product, i) in products"
           :key="i"
           cols="12"
           sm="6"
-          md="3"
-          lg="4"
-          class="ma-2"
+          md="4"
+          lg="3"
+          xl="2"
         >
           <ProductCard :product="product" />
         </v-col>
