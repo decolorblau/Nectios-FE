@@ -22,15 +22,24 @@ const mutations = {
   getCurrentProduct(state, payload) {
     state.currentProduct.product = payload;
   },
+  addProduct(state, payload) {
+    console.log("payload", payload);
+    state.products = [...state.products, payload];
+  },
+  getProductComments(state, payload) {
+    console.log("payload", payload);
+    state.productComments = [...payload];
+    console.log("state", state.productComments);
+  },
+  getUsers(state, payload) {
+    state.user.user = payload;
+  },
   getUserComments(state, payload) {
     payload.forEach((comment) => {
       if (comment.createdBy.email === state.user.user.email) {
         state.comments.push(payload);
       }
     });
-  },
-  getUsers(state, payload) {
-    state.user.user = payload;
   },
   newClientKey(state, payload) {
     state.user.clientKey = payload;
