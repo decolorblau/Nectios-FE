@@ -2,7 +2,12 @@
   <section class="user">
     <div class="user__card">
       <div class="user__background-photo">
-        <img :src="user.user.profilePhoto" :alt="user.user.name" class="user__avatar" />
+        <img
+          :src="user.user.profilePhoto"
+          :alt="user.user.name"
+          class="user__avatar"
+          lazy-src="https://c.tenor.com/-NoKc-auITEAAAAC/loading-buffering.gif"
+        />
       </div>
       <div class="user__textContainer">
         <h2>{{ user.user.name }} {{ user.user.surname }}</h2>
