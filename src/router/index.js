@@ -5,9 +5,10 @@ import NotFound from "../views/NotFoundView.vue";
 import paths from "./paths";
 import User from "../views/UserView.vue";
 import Detail from "../views/DetailView.vue";
+import NewProduct from "../views/NewProductView.vue";
 
 // eslint-disable-next-line object-curly-newline
-const { home, notFound, login, user, detail } = paths;
+const { home, notFound, login, user, detail, newProduct } = paths;
 
 const routes = [
   {
@@ -29,6 +30,11 @@ const routes = [
     path: detail,
     name: "Detail",
     component: Detail,
+  },
+  {
+    path: newProduct,
+    name: "NewProduct",
+    component: NewProduct,
   },
   {
     path: notFound,
