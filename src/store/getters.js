@@ -11,6 +11,9 @@ const getters = {
   redirectToUser() {
     router.push(paths.user);
   },
+  redirectToNewProduct() {
+    router.push(paths.newProduct);
+  },
 };
 
 export default getters;
