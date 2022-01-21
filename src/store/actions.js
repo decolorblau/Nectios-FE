@@ -76,8 +76,26 @@ const actions = {
           // eslint-disable-next-line comma-dangle
         }
       );
-      console.log("data a enviar", newProduct);
       commit("addProduct", newProduct);
+      return status;
+    } catch {
+      return "Error";
+    }
+  },
+  async addComment({ commit }, comment) {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { data: newComment, status } = await axios.post(
+        `${process.env.VUE_APP_API_URL}/comments`,
+        comment,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          // eslint-disable-next-line comma-dangle
+        }
+      );
+      commit("addComment", newComment);
       return status;
     } catch {
       return "Error";
@@ -95,7 +113,6 @@ const actions = {
         },
       });
       const newData = data[0].data;
-      console.log("newData", newData);
       commit("getProductComments", newData);
     } catch {
       return "Error";

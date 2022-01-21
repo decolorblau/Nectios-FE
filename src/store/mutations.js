@@ -23,13 +23,13 @@ const mutations = {
     state.currentProduct.product = payload;
   },
   addProduct(state, payload) {
-    console.log("payload", payload);
-    state.products = [...state.products, payload];
+    state.comments = [...state.products, payload];
+  },
+  addComment(state, payload) {
+    state.productCommentss = [...state.productComments, payload];
   },
   getProductComments(state, payload) {
-    console.log("payload", payload);
     state.productComments = [...payload];
-    console.log("state", state.productComments);
   },
   getUsers(state, payload) {
     state.user.user = payload;
