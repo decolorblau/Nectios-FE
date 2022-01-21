@@ -19,6 +19,9 @@ const mutations = {
   getProducts(state, payload) {
     state.products = [...payload];
   },
+  getCurrentProduct(state, payload) {
+    state.currentProduct.product = payload;
+  },
   getUserComments(state, payload) {
     payload.forEach((comment) => {
       if (comment.createdBy.email === state.user.user.email) {
