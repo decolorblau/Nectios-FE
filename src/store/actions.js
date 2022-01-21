@@ -59,6 +59,10 @@ const actions = {
       return "Error";
     }
   },
+  getCurrentProduct({ commit }, currentProduct) {
+    commit("getCurrentProduct", currentProduct);
+  },
+
   async getUserComments({ commit }, products) {
     try {
       const { userComments } = JSON.parse(localStorage.getItem("userComments") || "");

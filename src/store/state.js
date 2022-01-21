@@ -13,13 +13,15 @@ const state = {
     },
   },
   currentProduct: {
-    id: "",
-    client_id: "",
-    description: "",
-    key: "",
-    name: "",
-    price: "",
-    product_photo: "",
+    product: {
+      id: "",
+      client_id: "",
+      description: "",
+      key: "",
+      name: "",
+      price: "",
+      product_photo: "",
+    },
     comments: [],
   },
 };
