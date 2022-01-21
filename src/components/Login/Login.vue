@@ -7,6 +7,7 @@
         </v-card-title>
         <v-card-text>
           <v-text-field
+            type="email"
             ref="email"
             v-model="email"
             :rules="[() => !!email || 'This field is required']"
@@ -33,6 +34,7 @@
             placeholder="password example"
             required
             counter="Mín 8 characters"
+            type="password"
           ></v-text-field>
         </v-card-text>
         <v-card-actions>
