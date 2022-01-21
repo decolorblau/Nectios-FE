@@ -12,6 +12,7 @@
 <script>
 import { mapState } from "vuex";
 import NavBar from "./components/NavBar/NavBar.vue";
+import "@fontsource/roboto";
 
 export default {
   name: "App",
@@ -32,5 +33,6 @@ export default {
 #app {
   height: 100%;
   min-height: 100vh;
+  font-family: "Roboto";
 }
 </style>
