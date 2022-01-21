@@ -63,6 +63,62 @@ const actions = {
     commit("getCurrentProduct", currentProduct);
   },
 
+  async addProducts({ commit }, product) {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { data: newProduct, status } = await axios.post(
+        `${process.env.VUE_APP_API_URL}/products`,
+        product,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          // eslint-disable-next-line comma-dangle
+        }
+      );
+      commit("addProduct", newProduct);
+      return status;
+    } catch {
+      return "Error";
+    }
+  },
+  async addComment({ commit }, comment) {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { data: newComment, status } = await axios.post(
+        `${process.env.VUE_APP_API_URL}/comments`,
+        comment,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+          // eslint-disable-next-line comma-dangle
+        }
+      );
+      commit("addComment", newComment);
+      return status;
+    } catch {
+      return "Error";
+    }
+  },
+  async getProductComments({ commit }, productKey) {
+    try {
+      const { token } = JSON.parse(localStorage.getItem("token") || "");
+      const { clientKey } = JSON.parse(localStorage.getItem("clientKey") || "");
+      const uri = `${process.env.VUE_APP_API_URL}/comments?clientKey=${clientKey}&productKey=${productKey}`;
+      const encoded = encodeURI(uri);
+      const { data } = await axios.get(encoded, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const newData = data[0].data;
+      commit("getProductComments", newData);
+    } catch {
+      return "Error";
+    }
+  },
+
   async getUserComments({ commit }, products) {
     try {
       const { userComments } = JSON.parse(localStorage.getItem("userComments") || "");
@@ -84,15 +140,6 @@ const actions = {
           commit("getUserComments", newData);
         });
       }
-    } catch {
-      return "Error";
-    }
-  },
-  async getProductComments({ commit }, productKey) {
-    try {
-      const newData = [];
-      this.getComments(productKey);
-      commit("getProductComments", newData);
     } catch {
       return "Error";
     }
