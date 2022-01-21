@@ -26,9 +26,28 @@
           </div>
         </div>
       </div>
-      <div class="product__comments">
+      <v-container>
         <h2>REVIEWS</h2>
-      </div>
+        <v-row>
+          <v-col
+            d-flex
+            v-for="(comment, i) in productComments"
+            :key="i"
+            cols="12"
+            align-self="center"
+          >
+            <v-card>
+              <v-card-title
+                >{{ productComments.createdBy.name }}
+                {{ productComments.createdBy.surname }}</v-card-title
+              >
+              <v-card-text>
+                {{ productComments.description }}
+              </v-card-text>
+            </v-card>
+          </v-col>
+        </v-row>
+      </v-container>
     </div>
   </section>
 </template>
@@ -40,18 +59,19 @@ import { mapActions, mapGetters, mapState } from "vuex";
 
 export default {
   computed: {
-    ...mapState(["user", "products", "currentProduct"]),
+    ...mapState(["user", "products", "currentProduct", "productComments"]),
   },
   methods: {
-    ...mapActions(["checkToken", "getProducts", "getCurrentProduct"]),
+    ...mapActions(["checkToken", "getProducts", "getCurrentProduct", "getProductComments"]),
     ...mapGetters(["redirectToLogin"]),
   },
   mounted() {
-    console.log(this.products);
     const route = useRoute();
     const { id } = route.params;
-    const currentProduct = this.products.find((product) => product.id === +id);
-    this.getCurrentProduct(currentProduct);
+    const newCurrentProduct = this.products.find((product) => product.id === +id);
+    this.getCurrentProduct(newCurrentProduct);
+    const productKey = this.currentProduct.product.key;
+    this.getProductComments(productKey);
   },
   beforeMount() {
     this.checkToken();
@@ -66,6 +86,8 @@ export default {
 .productPage {
   display: flex;
   justify-content: center;
+  background-color: rgb(250, 250, 250);
+  min-height: 100vh;
 }
 .product {
   margin: 50px 0 30px;
@@ -74,6 +96,9 @@ export default {
   height: auto;
   min-height: 70%;
   padding: 30px;
+  background-color: white;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+
   &__card-detail {
     display: flex;
     justify-content: center;
