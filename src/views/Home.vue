@@ -1,7 +1,7 @@
 <template>
   <div class="home">
-    <v-container fill-height align="center" class="grid-list">
-      <v-row no-gutters wrap style="height: 150px">
+    <v-container fluid fill-heigh align="center" class="grid-list">
+      <v-row fill-height no-gutters wrap style="height: 150px" class="table">
         <v-col
           d-flex
           v-for="(product, i) in products"
@@ -15,6 +15,10 @@
         >
           <ProductCard :product="product" />
         </v-col>
+        <v-divider class="mt-6"></v-divider>
+        <v-col cols="12" class="footer">
+          <Footer class="mt-3 mb-10" />
+        </v-col>
       </v-row>
     </v-container>
   </div>
@@ -23,10 +27,16 @@
 <script>
 import { defineComponent } from "vue";
 import { mapActions, mapGetters, mapState } from "vuex";
+import Footer from "../components/Footer/Footer.vue";
 import ProductCard from "../components/ProductCard/ProductCard.vue";
 
 export default defineComponent({
   name: "Home",
+  components: {
+    ProductCard,
+    Footer,
+  },
+
   computed: {
     ...mapState(["user", "products"]),
   },
@@ -37,9 +47,6 @@ export default defineComponent({
 
   mounted() {
     this.getProducts();
-  },
-  components: {
-    ProductCard,
   },
   beforeMount() {
     this.checkToken();
@@ -52,13 +59,20 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .home {
-  height: auto;
   min-height: 100%;
   background-color: rgb(250, 250, 250);
   font-family: Helvetica, "Hilda-Regular", Arial, sans-serif;
 }
-.grid {
+.grid-list {
   width: 90%;
-  height: 75%;
+  height: auto;
+  min-height: 100vh;
+}
+.footer {
+  position: relative;
+  bottom: 0;
+}
+.table {
+  background-color: rgb(250, 250, 250);
 }
 </style>
