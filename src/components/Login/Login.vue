@@ -1,7 +1,7 @@
 <template>
   <v-container align="center">
     <div class="title">
-      <h1>WELCOLME TO BLUE<span class="blue">WORLD</span></h1>
+      <h1>WELCOME TO BLUE<span class="blue">WORLD</span></h1>
     </div>
     <v-spacer></v-spacer>
 

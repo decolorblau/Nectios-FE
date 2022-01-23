@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Form component When is rendered Then it matches de snapshot 1`] = `
+<v-footer padless="" class="footer">
+  <v-col class="text-center" cols="12">
+    <p class="text">Made by deColorBlau</p>
+    <p class="text">- NECTIOS -</p>
+    <p class="text privacy">Privacy policy | Legal Notice</p>
+  </v-col>
+</v-footer>
+`;

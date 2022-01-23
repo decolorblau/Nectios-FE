@@ -10,10 +10,10 @@ describe("Given a Login component", () => {
       const wrapper = shallowMount(Login);
       expect(wrapper.html()).toMatchSnapshot();
     });
-    test("Then it should render h2 tag with Login text", () => {
+    test("Then it should render h1 tag with WELCOME TO BLUEWORLD text", () => {
       const wrapper = shallowMount(Login);
-      const h2Value = wrapper.find("h2").text();
-      expect(h2Value).toBe("Login");
+      const h2Value = wrapper.find("h1").text();
+      expect(h2Value).toBe("WELCOME TO BLUEWORLD");
     });
     test("Then it should render Email input", () => {
       const wrapper = shallowMount(Login);
@@ -35,7 +35,7 @@ describe("Given a Login component", () => {
     });
   });
   describe("When the form is submitted", () => {
-    test("Then it should invoke onSubmit", () => {
+    test("Then it should invoke onSubmit", async () => {
       const store = createStore({
         state() {
           return state;
@@ -52,7 +52,7 @@ describe("Given a Login component", () => {
       const onSubmit = jest.fn();
       onSubmit();
       const form = wrapper.get("v-card");
-      form.trigger("submit");
+      await form.trigger("submit");
       expect(onSubmit).toHaveBeenCalled();
     });
   });
