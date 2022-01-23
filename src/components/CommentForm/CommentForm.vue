@@ -3,7 +3,7 @@
     <v-col cols="12">
       <v-card ref="onSubmit" class="pa-2 product-card">
         <v-card-title class="product mt-4 mb-0 pa-0">
-          <p class="product__title">YOUR OPINION IS IMPORTANT</p>
+          <h2 class="product__title">YOUR OPINION IS IMPORTANT</h2>
         </v-card-title>
         <v-card-text class="pb-0">
           <v-textarea

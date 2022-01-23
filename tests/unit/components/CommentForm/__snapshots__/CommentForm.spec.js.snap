@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a CommentForm component When is rendered Then it matches de snapshot 1`] = `
+<v-row justify="center">
+  <v-col cols="12">
+    <v-card class="pa-2 product-card">
+      <v-card-title class="product mt-4 mb-0 pa-0">
+        <h2 class="product__title">YOUR OPINION IS IMPORTANT</h2>
+      </v-card-title>
+      <v-card-text class="pb-0">
+        <v-textarea rows="3" row-height="18" modelvalue="" maxlength="400" rules="() => {
+                      /* istanbul ignore next */
+                      cov_rcc3bo5h9.f[9]++;
+                      cov_rcc3bo5h9.s[49]++;
+                      return (
+                        /* istanbul ignore next */
+                        (cov_rcc3bo5h9.b[5][0]++, !!_ctx.description) ||
+                        /* istanbul ignore next */
+                        (cov_rcc3bo5h9.b[5][1]++, 'This field is required')
+                      );
+                    }" label="Write a review" counter="400" color="#207eeb" single-line="" required="" placeholder="Campbell's condensed is a tomato Soup " class="ma-0 pa-0"></v-textarea>
+      </v-card-text>
+      <v-card-actions class="pt-0">
+        <v-spacer></v-spacer>
+        <v-btn variant="outlined" class="mt-0 mb-1 mr-2" disabled="true" color="#207eeb" text=""> SHARE OPINION </v-btn>
+      </v-card-actions>
+    </v-card>
+    <div class="errorMessage">
+      <!--v-if-->
+    </div>
+  </v-col>
+</v-row>
+`;
