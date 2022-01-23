@@ -40,7 +40,4 @@ export default defineComponent({
   justify-items: center;
   background-color: rgb(250, 250, 250);
 }
-.blue {
-  color: #207eeb;
-}
 </style>
