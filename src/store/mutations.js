@@ -49,18 +49,20 @@ const mutations = {
     state.user.user = payload;
   },
   getUserComments(state, payload) {
-    state.user.comments = [];
-    payload.forEach((comment) => {
-      if (comment.createdBy.email === state.user.user.email) {
-        state.user.comments = [...state.user.comments, comment];
-      }
-    });
-    const { phone } = state.user.comments[0].createdBy;
-    state.user.phone = phone;
-    localStorage.setItem("phone", JSON.stringify({ phone }));
-    const userReviews = state.user.comments.length;
-    state.user.userReviews = userReviews;
-    localStorage.setItem("userReviews", JSON.stringify({ userReviews }));
+    if (payload.length > 0) {
+      state.user.comments = [];
+      payload.forEach((comment) => {
+        if (comment.createdBy.email === state.user.user.email) {
+          state.user.comments = [...state.user.comments, comment];
+        }
+      });
+      const { phone } = payload[0].createdBy;
+      state.user.phone = phone;
+      localStorage.setItem("phone", JSON.stringify({ phone }));
+      const userReviews = payload.length;
+      state.user.userReviews = userReviews;
+      localStorage.setItem("userReviews", JSON.stringify({ userReviews }));
+    }
   },
   newClientKey(state, payload) {
     state.user.clientKey = payload;

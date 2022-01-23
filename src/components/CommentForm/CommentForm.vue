@@ -59,10 +59,10 @@ export default defineComponent({
     };
   },
   computed: {
-    ...mapState(["currentProduct"]),
+    ...mapState(["currentProduct", "products"]),
   },
   methods: {
-    ...mapActions(["addComment", "getProductComments"]),
+    ...mapActions(["addComment", "getProductComments", "getUserComments", "getProducts"]),
     async onSubmit() {
       try {
         this.wrongProduct = false;
@@ -86,6 +86,10 @@ export default defineComponent({
             this.description = "";
             const productKey = this.currentProduct.product.key;
             this.getProductComments(productKey);
+            localStorage.removeItem("phone");
+            localStorage.removeItem("userReviews");
+            this.getProducts();
+            this.getUserComments(this.products);
           } else {
             this.wrongProduct = true;
           }
