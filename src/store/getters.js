@@ -14,6 +14,10 @@ const getters = {
   redirectToNewProduct() {
     router.push(paths.newProduct);
   },
+
+  getCurrentProduct(currentProduct) {
+    localStorage.setItem("currentProduct", JSON.stringify({ currentProduct }));
+  },
 };
 
 export default getters;
