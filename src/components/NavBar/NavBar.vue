@@ -84,11 +84,6 @@ export default defineComponent({
   data() {
     return {
       drawer: false,
-      menu: [
-        { icon: "home", title: "HOME" },
-        { icon: "user", title: "USER" },
-        { icon: "logout", title: "LOGOUT" },
-      ],
     };
   },
 
@@ -99,9 +94,6 @@ export default defineComponent({
     logout() {
       this.logoutUser();
       this.redirectToLogin();
-    },
-    menuItem() {
-      return this.menu;
     },
     showDrawer() {
       this.drawer = !this.drawer;
