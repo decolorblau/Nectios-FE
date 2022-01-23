@@ -1,5 +1,5 @@
 <template>
-  <div class="home">
+  <section class="home">
     <v-container fluid fill-heigh align="center" class="grid-list">
       <v-row fill-height no-gutters wrap style="height: 150px" class="table">
         <v-col
@@ -21,7 +21,7 @@
         </v-col>
       </v-row>
     </v-container>
-  </div>
+  </section>
 </template>
 
 <script>
@@ -59,7 +59,7 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .home {
-  min-height: 100%;
+  min-height: 100vh;
   background-color: rgb(250, 250, 250);
   font-family: Helvetica, "Hilda-Regular", Arial, sans-serif;
 }

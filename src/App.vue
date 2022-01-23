@@ -1,9 +1,10 @@
 <template>
-  <v-app>
+  <v-app id="app">
     <header v-if="user.isAuthenticated">
       <NavBar />
     </header>
-    <v-main>
+    <v-divider></v-divider>
+    <v-main fill-heigh>
       <router-view> </router-view>
     </v-main>
   </v-app>
