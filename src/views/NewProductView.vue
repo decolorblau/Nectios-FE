@@ -1,6 +1,7 @@
 <template>
-  <v-container class="form-container">
+  <v-container class="form-container pa-0" full-height>
     <ProductForm />
+    <Footer />
   </v-container>
 </template>
 
@@ -8,12 +9,14 @@
 import { defineComponent } from "vue";
 import { mapActions, mapGetters, mapState } from "vuex";
 import ProductForm from "../components/ProductForm/ProductForm.vue";
+import Footer from "../components/Footer/Footer.vue";
 
 export default defineComponent({
   name: "NewProductPage",
 
   components: {
     ProductForm,
+    Footer,
   },
   computed: {
     ...mapState(["user"]),
@@ -34,8 +37,9 @@ export default defineComponent({
 <style lang="scss" scoped>
 .form-container {
   min-width: 100vw;
-  height: calc(100vh - 56px);
+  width: 100%;
   display: flex;
+  flex-direction: column;
   align-items: center;
   justify-items: center;
   background-color: rgb(250, 250, 250);

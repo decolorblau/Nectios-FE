@@ -38,6 +38,6 @@ export default defineComponent({
   display: flex;
   align-items: center;
   justify-items: center;
-  background-color: #1c1f28;
+  background-color: rgb(250, 250, 250);
 }
 </style>
