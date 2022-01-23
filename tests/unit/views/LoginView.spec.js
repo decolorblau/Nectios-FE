@@ -5,7 +5,7 @@ import router from "@/router";
 import state from "../mockState";
 
 let store;
-const chekTokenMock = jest.fn();
+const checkTokenMock = jest.fn();
 const redirectToHomeMock = jest.fn();
 
 beforeEach(() => {
@@ -13,7 +13,7 @@ beforeEach(() => {
     state() {
       return state;
     },
-    actions: { checkToken: chekTokenMock },
+    actions: { checkToken: checkTokenMock },
     getters: { redirectToHome: redirectToHomeMock },
   });
 });
@@ -27,7 +27,7 @@ describe("Given a LoginView component", () => {
         },
       });
 
-      expect(chekTokenMock).toHaveBeenCalled();
+      expect(checkTokenMock).toHaveBeenCalled();
     });
     describe("When the user is not Authenticated", () => {
       test("Then redirectToHome action not should be called", () => {
@@ -41,7 +41,7 @@ describe("Given a LoginView component", () => {
       });
     });
     describe("When the user is Authenticated", () => {
-      test("Then redirectToHome action should be called", () => {
+      test("Then redirectToHome action should be called", async () => {
         state.user.isAuthenticated = true;
         shallowMount(LoginView, {
           global: {

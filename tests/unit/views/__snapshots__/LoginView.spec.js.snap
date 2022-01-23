@@ -4,7 +4,7 @@ exports[`Given a LoginView component when is rendered Then it matches de snapsho
 <div class="login-container">
   <v-container align="center">
     <div class="title">
-      <h1>WELCOLME TO BLUE<span class="blue">WORLD</span></h1>
+      <h1>WELCOME TO BLUE<span class="blue">WORLD</span></h1>
     </div>
     <v-spacer></v-spacer>
     <v-row justify="center" class="container">

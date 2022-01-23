@@ -3,7 +3,7 @@
 exports[`Given a Login component When is rendered Then it matches de snapshot 1`] = `
 <v-container align="center">
   <div class="title">
-    <h1>WELCOLME TO BLUE<span class="blue">WORLD</span></h1>
+    <h1>WELCOME TO BLUE<span class="blue">WORLD</span></h1>
   </div>
   <v-spacer></v-spacer>
   <v-row justify="center" class="container">
