@@ -14,6 +14,7 @@
 import { mapState } from "vuex";
 import NavBar from "./components/NavBar/NavBar.vue";
 import "@fontsource/roboto";
+import "@fontsource/rubik";
 
 export default {
   name: "App",
