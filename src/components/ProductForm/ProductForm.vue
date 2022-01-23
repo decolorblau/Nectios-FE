@@ -3,10 +3,9 @@
     <v-col cols="10" sm="10" md="8" lg="6">
       <v-card ref="onSubmit" class="pa-3 product-card">
         <v-card-title class="product mt-12 mb-10">
-          <p class="product__title">
-            ADD YOUR PRODUCTS TO
-            <span class="world"> BLUE<span class="blue">WORLD</span></span>
-          </p>
+          <h2 class="product__title">
+            ADD YOUR PRODUCTS TO<span class="world"> BLUE<span class="blue">WORLD</span></span>
+          </h2>
         </v-card-title>
         <v-card-text>
           <v-text-field
