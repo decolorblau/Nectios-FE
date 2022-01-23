@@ -1,5 +1,5 @@
 <template>
-  <v-row justify="center">
+  <v-row justify="center" class="form-container">
     <v-col cols="10" sm="10" md="8" lg="6">
       <v-card ref="onSubmit" class="pa-3 product-card">
         <v-card-title class="product mt-12 mb-10">
@@ -72,12 +72,12 @@ import { defineComponent } from "vue";
 import { mapActions, mapGetters, mapState } from "vuex";
 
 export default defineComponent({
-  name: "Login",
+  name: "ProductForm",
   data() {
     return {
-      name: "Pencil",
-      description: "Blue pencil",
-      price: 1.0,
+      name: "",
+      description: "",
+      price: 0,
       isDisabled: true,
       wrongProduct: false,
     };
@@ -86,7 +86,7 @@ export default defineComponent({
     ...mapState(["user"]),
   },
   methods: {
-    ...mapActions(["addProducts"]),
+    ...mapActions(["addProduct"]),
     ...mapGetters(["redirectToHome"]),
     async onSubmit() {
       try {
@@ -96,13 +96,14 @@ export default defineComponent({
             // eslint-disable-next-line comma-dangle
             localStorage.getItem("clientKey") || ""
           );
+
           const productData = {
             name: this.name,
             description: this.description,
             price: this.price,
             clientKey,
           };
-          const status = await this.addProducts(productData);
+          const status = await this.addProduct(productData);
           if (status === 200) {
             this.redirectToHome();
           } else {
@@ -128,11 +129,16 @@ export default defineComponent({
     font-weight: 400;
   }
 }
+.form-container {
+  width: 100%;
+  margin-top: 30px;
+  padding: 0;
+}
 .product-card {
   box-shadow: 0 0 10px rgba(32, 126, 235, 0.2);
 }
 .errorMessage {
-  margin-top: 30px;
+  margin-top: 20px;
   height: 60px;
   display: flex;
   align-items: center;
