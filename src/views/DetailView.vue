@@ -114,7 +114,6 @@
 import { mapActions, mapGetters, mapState } from "vuex";
 import CommentForm from "../components/CommentForm/CommentForm.vue";
 import Footer from "../components/Footer/Footer.vue";
-import "@fontsource/rubik";
 
 export default {
   name: "DetailView",
