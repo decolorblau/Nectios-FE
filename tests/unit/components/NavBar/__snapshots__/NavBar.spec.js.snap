@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a NavBar component When is rendered Then it matches de snapshot 1`] = `
+<v-app-bar density="comfortable" flat="" app="">
+  <v-app-bar-title class="text-uppercase grey--text text-h4" to="/">
+    <router-link to="/" class="title display-1"><span class="font-weight-light">BLUE</span><span class="world blue">WORLD</span></router-link>
+  </v-app-bar-title>
+  <v-spacer></v-spacer>
+  <v-list class="hidden-sm-and-down">
+    <v-btn flat="" color="none" class="mr-4 text-uppercase"><span class="text-bar">Home</span></v-btn>
+    <v-btn to="/user" flat="" ripple="false" color="none" class="mr-4 text-uppercase"><span class="text-bar">User</span></v-btn>
+    <v-btn flat="" color="none" class="mr-4 text-uppercase">
+      <p class="text-bar"><span class="blue">+ADD</span>PRODUCT</p>
+    </v-btn>
+    <v-divider class="mx-4" vertical="" inset=""></v-divider>
+    <v-btn class="mr-4 ml-5" to="/login" color="none" flat=""><span class="text-bar">Logout</span></v-btn>
+  </v-list>
+  <v-banner-content class="hidden-md-and-up">
+    <v-btn color="none" flat="" text=""><i class="fas fa-bars"></i></v-btn>
+  </v-banner-content>
+</v-app-bar>
+<v-navigation-drawer modelvalue="false" position="right" width="1000" elevation="0" color="white" border="none" class="hidden-md-and-up">
+  <v-list nav="" dense="" align="center">
+    <div active-class="deep-purple--text text--accent-4">
+      <v-list-item class="pl-7 text-bar" title="Home"></v-list-item>
+      <v-list-item class="pl-7 text-bar" title="User"></v-list-item>
+      <v-list-item class="pl-7 text-bar" title="+ ADD PRODUCT"></v-list-item>
+      <v-spacer></v-spacer>
+      <v-list-item class="pl-7 text-bar" title="Logout"></v-list-item>
+    </div>
+  </v-list>
+</v-navigation-drawer>
+`;
