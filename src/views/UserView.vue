@@ -16,14 +16,14 @@
             <div class="user__data">
               <v-icon class="user__icons">far fa-envelope</v-icon>
               <div class="user__email-text">
-                <p class="user__email-title">EMAIL</p>
+                <p class="user__email-title"><strong> EMAIL</strong></p>
                 <p>{{ user.user.email }}</p>
               </div>
             </div>
             <div class="user__data">
-              <v-icon class="user__icons">far fa-address-card</v-icon>
+              <v-icon class="user__icons" color="">far fa-address-card</v-icon>
               <div class="user__role-text">
-                <p class="user__role-title">ROLE</p>
+                <p class="user__role-title"><strong>ROLE</strong></p>
                 <p>{{ user.user.role }}</p>
               </div>
             </div>
@@ -32,14 +32,14 @@
             <div class="user__data">
               <v-icon class="user__icons">far fa-bell</v-icon>
               <div class="user__role-text">
-                <p class="user__role-title">PHONE</p>
+                <p class="user__role-title"><strong>PHONE</strong></p>
                 <p>{{ user.phone }}</p>
               </div>
             </div>
             <div class="user__data">
               <v-icon class="user__icons">far fa-comment-alt</v-icon>
               <div class="user__role-text">
-                <p class="user__role-title">REVIEWS</p>
+                <p class="user__role-title"><strong>REVIEWS</strong></p>
                 <p>{{ user.reviews }}</p>
               </div>
             </div>
@@ -61,30 +61,30 @@
           <h2>{{ user.user.name }} {{ user.user.surname }}</h2>
           <div class="userSm__text">
             <div class="user__data">
-              <v-icon class="userSm__icons">far fa-envelope</v-icon>
+              <v-icon class="user__icons">far fa-envelope</v-icon>
               <div class="user__email-text">
-                <p class="user__email-title">EMAIL</p>
+                <p class="user__email-title"><strong>EMAIL</strong></p>
                 <p>{{ user.user.email }}</p>
               </div>
             </div>
             <div class="user__data">
               <v-icon class="user__icons">far fa-bell</v-icon>
               <div class="user__role-text">
-                <p class="user__role-title">PHONE</p>
+                <p class="user__role-title"><strong>PHONE</strong></p>
                 <p>{{ user.phone }}</p>
               </div>
             </div>
             <div class="user__data">
-              <v-icon class="userSm__icons">far fa-id-badge</v-icon>
+              <v-icon class="user__icons">far fa-id-badge</v-icon>
               <div class="user__role-text">
-                <p class="user__role-title">ROLE</p>
+                <p class="user__role-title"><strong>ROLE</strong></p>
                 <p>{{ user.user.role.toLowerCase() }}</p>
               </div>
             </div>
             <div class="user__data">
               <v-icon class="user__icons">far fa-comment-alt</v-icon>
               <div class="user__role-text">
-                <p class="user__role-title">REVIEWS</p>
+                <p class="user__role-title"><strong>REVIEWS</strong></p>
                 <p>{{ user.reviews }}</p>
               </div>
             </div>
@@ -140,6 +140,14 @@ export default defineComponent({
     this.checkToken();
     if (!this.user.isAuthenticated) {
       this.redirectToLogin();
+    }
+  },
+  updated() {
+    if (JSON.parse(localStorage.getItem("userReviews") !== null)) {
+      const { userReviews } = JSON.parse(localStorage.getItem("userReviews"));
+      const { phone } = JSON.parse(localStorage.getItem("phone"));
+      this.loadUserPhone(phone);
+      this.loadUserReviews(userReviews);
     }
   },
 });
@@ -208,7 +216,7 @@ export default defineComponent({
   }
   &__icons {
     margin-right: 20px;
-    color: rgb(66, 66, 66);
+    color: #207eeb;
     font-weight: 300;
     font-size: 20px;
   }
