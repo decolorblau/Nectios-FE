@@ -72,9 +72,9 @@ export default defineComponent({
   name: "Login",
   data() {
     return {
-      email: "claudia@pruebatecnica.com",
-      clientKey: "cc794dc0-6bc9-114c-9066-0242ac493029",
-      password: "Password1234",
+      email: "",
+      clientKey: "",
+      password: "",
       isDisabled: true,
       wrongCredentials: false,
     };
