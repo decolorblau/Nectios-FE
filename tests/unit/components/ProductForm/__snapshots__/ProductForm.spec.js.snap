@@ -8,39 +8,9 @@ exports[`Given a ProductForm component When is rendered Then it matches de snaps
         <h2 class="product__title"> ADD YOUR PRODUCTS TO<span class="world"> BLUE<span class="blue">WORLD</span></span></h2>
       </v-card-title>
       <v-card-text>
-        <v-text-field modelvalue="" rules="() => {
-                      /* istanbul ignore next */
-                      cov_1rnru8588v.f[9]++;
-                      cov_1rnru8588v.s[43]++;
-                      return (
-                        /* istanbul ignore next */
-                        (cov_1rnru8588v.b[5][0]++, !!_ctx.name) ||
-                        /* istanbul ignore next */
-                        (cov_1rnru8588v.b[5][1]++, 'This field is required')
-                      );
-                    }" label="Name" required="" color="#207eeb" placeholder="Campbell's"></v-text-field>
-        <v-text-field outlined="" modelvalue="0" rules="() => {
-                      /* istanbul ignore next */
-                      cov_1rnru8588v.f[11]++;
-                      cov_1rnru8588v.s[45]++;
-                      return (
-                        /* istanbul ignore next */
-                        (cov_1rnru8588v.b[7][0]++, !!_ctx.price) ||
-                        /* istanbul ignore next */
-                        (cov_1rnru8588v.b[7][1]++, 'This field is required')
-                      );
-                    }" label="Price" placeholder="2.50" type="number" color="#207eeb" required=""></v-text-field>
-        <v-textarea rows="5" row-height="30" modelvalue="" maxlength="400" rules="() => {
-                      /* istanbul ignore next */
-                      cov_1rnru8588v.f[13]++;
-                      cov_1rnru8588v.s[47]++;
-                      return (
-                        /* istanbul ignore next */
-                        (cov_1rnru8588v.b[9][0]++, !!_ctx.description) ||
-                        /* istanbul ignore next */
-                        (cov_1rnru8588v.b[9][1]++, 'This field is required')
-                      );
-                    }" label="Description" counter="400" color="#207eeb" single-line="" required="" placeholder="Campbell's condensed is a tomato Soup "></v-textarea>
+        <v-text-field modelvalue="" rules="() => !!_ctx.name || 'This field is required'" label="Name" required="" color="#207eeb" placeholder="Campbell's"></v-text-field>
+        <v-text-field outlined="" modelvalue="0" rules="() => !!_ctx.price || 'This field is required'" label="Price" placeholder="2.50" type="number" color="#207eeb" required=""></v-text-field>
+        <v-textarea rows="5" row-height="30" modelvalue="" maxlength="400" rules="() => !!_ctx.description || 'This field is required'" label="Description" counter="400" color="#207eeb" single-line="" required="" placeholder="Campbell's condensed is a tomato Soup "></v-textarea>
       </v-card-text>
       <v-card-actions>
         <v-spacer></v-spacer>
