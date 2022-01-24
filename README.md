@@ -1,5 +1,9 @@
 # PRUEBA TECNICA NECTIOS FRONT-END
 
+## BLUEWORLD
+
+Enlace a BLUEWORLD: https://nectios-blueworld.netlify.app/
+
 BLUEWORLD es una aplicación Front-end realizada con Vue3, Vuex y Vuetify 3 Alpha. Todos los datos los obtiene consumiendo una API de Nectios. Las peticiones se hacen con Axios.
 
 Al entrar, la primera vista es un Login con validadción. Si el usuario es correcto este login nos devuelve un token que se almacena al LocalStorage, de esta manera la sesión permanece abierta hasta que el usuario cierra su sesión con el Logout, que se borraran todos sus datos del LocalStorage.
