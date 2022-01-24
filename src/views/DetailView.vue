@@ -228,12 +228,12 @@ export default {
   &__price {
     font-size: 50px;
     color: #207eeb;
-    font-family: "Rubik";
+    font-family: "Rubik", sans-serif;
   }
   &__price-sm {
     font-size: 36px;
     color: #207eeb;
-    font-family: "Rubik";
+    font-family: "Rubik", sans-serif;
   }
 
   &__comments {
