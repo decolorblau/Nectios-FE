@@ -2,8 +2,8 @@
   <v-card class="ma-1 mb-2 pb-1" width="269.5" @click="redirectToDetail()">
     <v-img
       :src="
-        product.product_photo ===
-        'https://boltagency.ca/content/images/2020/03/placeholder-images-product-1_large.png'
+        product.product_photo !==
+        'https://weddo-ecommerce.s3.eu-west-3.amazonaws.com/profilePhotos/1626447073678.jpg'
           ? product.product_photo
           : 'https://images.theconversation.com/files/387012/original/file-20210301-12-pyj8jo.jpg?ixlib=rb-1.1.0&q=45&auto=format&w=1200&h=1200.0&fit=crop'
       "
