@@ -16,7 +16,7 @@ exports[`Given a NavBar component When is rendered Then it matches de snapshot 1
     <v-btn class="mr-4 ml-5" to="/login" color="none" flat=""><span class="text-bar">Logout</span></v-btn>
   </v-list>
   <v-banner-content class="hidden-md-and-up">
-    <v-btn color="none" flat="" text=""><i class="fas fa-bars"></i></v-btn>
+    <v-btn color="none" flat="" text=""><em class="fas fa-bars"></em></v-btn>
   </v-banner-content>
 </v-app-bar>
 <v-navigation-drawer modelvalue="false" position="right" width="1000" elevation="0" color="white" border="none" class="hidden-md-and-up">
