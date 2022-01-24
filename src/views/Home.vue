@@ -38,7 +38,7 @@
             &#60; Before</v-btn
           >
           <p class="pagination__text">
-            page {{ counter + 1 }} of {{ Math.ceil(products.length / elementsInPage) }}
+            {{ counter + 1 }} / {{ Math.ceil(products.length / elementsInPage) }}
           </p>
           <v-btn
             :disabled="(counter + 1) * elementsInPage >= products.length"

@@ -10,9 +10,51 @@ exports[`Given a Login component When is rendered Then it matches de snapshot 1`
     <v-col cols="10" sm="8" md="6" lg="6" xl="4">
       <v-card class="pa-3 mt-8 login-card">
         <v-card-text class="mt-5">
-          <v-text-field type="email" modelvalue="claudia@pruebatecnica.com" rules="() => !!_ctx.email || 'This field is required'" label="Email" required="" placeholder="example@nectios.com"></v-text-field>
-          <v-text-field modelvalue="cc794dc0-6bc9-114c-9066-0242ac493029" rules="() => !!_ctx.clientKey || 'This field is required'" label="Client Key" required="" placeholder="ff000aa0-1bb1-222c-8888-0000aa123456"></v-text-field>
-          <v-text-field modelvalue="Password1234" rules="() => !!_ctx.password || 'This field is required',() => !!_ctx.password &amp;&amp; _ctx.password.length >= 8 || 'At least 8 characters'" label="Password" placeholder="password example" required="" counter="Mín 8 characters" type="password"></v-text-field>
+          <v-text-field type="email" modelvalue="claudia@pruebatecnica.com" rules="() => {
+                          /* istanbul ignore next */
+                          cov_1dlrxdt9wm.f[9]++;
+                          cov_1dlrxdt9wm.s[41]++;
+                          return (
+                            /* istanbul ignore next */
+                            (cov_1dlrxdt9wm.b[4][0]++, !!_ctx.email) ||
+                            /* istanbul ignore next */
+                            (cov_1dlrxdt9wm.b[4][1]++, 'This field is required')
+                          );
+                        }" label="Email" required="" placeholder="example@nectios.com"></v-text-field>
+          <v-text-field modelvalue="cc794dc0-6bc9-114c-9066-0242ac493029" rules="() => {
+                          /* istanbul ignore next */
+                          cov_1dlrxdt9wm.f[11]++;
+                          cov_1dlrxdt9wm.s[43]++;
+                          return (
+                            /* istanbul ignore next */
+                            (cov_1dlrxdt9wm.b[6][0]++, !!_ctx.clientKey) ||
+                            /* istanbul ignore next */
+                            (cov_1dlrxdt9wm.b[6][1]++, 'This field is required')
+                          );
+                        }" label="Client Key" required="" placeholder="ff000aa0-1bb1-222c-8888-0000aa123456"></v-text-field>
+          <v-text-field modelvalue="Password1234" rules="() => {
+                          /* istanbul ignore next */
+                          cov_1dlrxdt9wm.f[13]++;
+                          cov_1dlrxdt9wm.s[45]++;
+                          return (
+                            /* istanbul ignore next */
+                            (cov_1dlrxdt9wm.b[8][0]++, !!_ctx.password) ||
+                            /* istanbul ignore next */
+                            (cov_1dlrxdt9wm.b[8][1]++, 'This field is required')
+                          );
+                        },() => {
+                          /* istanbul ignore next */
+                          cov_1dlrxdt9wm.f[14]++;
+                          cov_1dlrxdt9wm.s[46]++;
+                          return (
+                            /* istanbul ignore next */
+                            (cov_1dlrxdt9wm.b[9][0]++, !!_ctx.password) &amp;&amp;
+                            /* istanbul ignore next */
+                            (cov_1dlrxdt9wm.b[9][1]++, _ctx.password.length >= 8) ||
+                            /* istanbul ignore next */
+                            (cov_1dlrxdt9wm.b[9][2]++, 'At least 8 characters')
+                          );
+                        }" label="Password" placeholder="password example" required="" counter="Mín 8 characters" type="password"></v-text-field>
         </v-card-text>
         <v-card-actions>
           <v-spacer></v-spacer>
