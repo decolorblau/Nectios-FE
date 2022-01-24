@@ -1,7 +1,7 @@
 <template>
   <section class="home">
-    <v-container fluid fill-heigh align="center" class="grid-list">
-      <v-row fill-height no-gutters wrap style="height: 150px" class="table">
+    <v-container fluid align="center" class="grid-list">
+      <v-row fill-height no-gutters wrap class="table">
         <v-col
           d-flex
           v-for="(product, i) in pageProducts"
@@ -15,6 +15,10 @@
         >
           <ProductCard :product="product" />
         </v-col>
+      </v-row>
+    </v-container>
+    <v-container>
+      <v-row>
         <v-col cols="12" class="pagination">
           <v-btn
             :disabled="counter === 0"
@@ -129,14 +133,17 @@ export default defineComponent({
 
 <style lang="scss" scoped>
 .home {
-  min-height: 100vh;
+  min-height: calc(100vh - 57px);
   background-color: rgb(250, 250, 250);
   font-family: Helvetica, "Hilda-Regular", Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
 }
 .grid-list {
   width: 90%;
-  height: auto;
-  min-height: 100vh;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 .footer {
   align-items: center;
@@ -146,6 +153,7 @@ export default defineComponent({
 }
 .table {
   background-color: rgb(250, 250, 250);
+  min-height: 75vh;
 }
 .pagination {
   display: flex;
