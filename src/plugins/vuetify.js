@@ -1,6 +1,5 @@
 // Styles
-/* import "@mdi/font/css/materialdesignicons.css";
- */ // eslint-disable-next-line import/no-extraneous-dependencies
+// eslint-disable-next-line import/no-extraneous-dependencies
 import "@fortawesome/fontawesome-free/css/all.css";
 // eslint-disable-next-line import/no-unresolved
 import "vuetify/styles";

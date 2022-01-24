@@ -34,7 +34,7 @@
     </v-list>
     <v-banner-content class="hidden-md-and-up">
       <v-btn @click="showDrawer()" color="none" flat text>
-        <i class="fas fa-bars"></i>
+        <em class="fas fa-bars"></em>
       </v-btn>
     </v-banner-content>
   </v-app-bar>

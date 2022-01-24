@@ -35,6 +35,6 @@ export default {
 #app {
   height: 100%;
   min-height: 100vh;
-  font-family: "Roboto";
+  font-family: "Roboto", sans-serif;
 }
 </style>

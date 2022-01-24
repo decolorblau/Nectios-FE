@@ -124,7 +124,7 @@ export default defineComponent({
   justify-content: center;
   &__title {
     font-size: 26px;
-    font-family: "Roboto";
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
   }
 }
