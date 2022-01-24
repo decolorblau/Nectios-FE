@@ -28,7 +28,7 @@ const actions = {
     localStorage.removeItem("userReviews");
     commit("logoutUser");
   },
-  async getProducts({ commit }) {
+  async getProducts({ commit }, counter) {
     try {
       const { token } = JSON.parse(localStorage.getItem("token") || "");
       const { clientKey } = JSON.parse(localStorage.getItem("clientKey") || "");
@@ -41,6 +41,17 @@ const actions = {
       });
       const newData = data[0].data;
       commit("getProducts", newData);
+      const elementsInPage = 12;
+      const start = elementsInPage * counter;
+      let end = start + elementsInPage;
+      if (newData.length < end) {
+        end = newData.length;
+        const pageProducts = newData.slice(start, end);
+        commit("getPageProducts", pageProducts);
+      } else {
+        const pageProducts = newData.slice(start, end);
+        commit("getPageProducts", pageProducts);
+      }
     } catch {
       return "Error";
     }

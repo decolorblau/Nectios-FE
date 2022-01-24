@@ -1,5 +1,6 @@
 const state = {
   products: [],
+  pageProducts: [],
   productComments: {
     isReviewed: false,
     comments: [],

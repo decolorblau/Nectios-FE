@@ -22,6 +22,9 @@ const mutations = {
   getProducts(state, payload) {
     state.products = [...payload];
   },
+  getPageProducts(state, payload) {
+    state.pageProducts = [...payload];
+  },
   loadCurrentProduct(state, payload) {
     state.currentProduct.product = payload;
   },
