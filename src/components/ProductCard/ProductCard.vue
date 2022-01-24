@@ -11,6 +11,7 @@
       class="mt-3 rounded"
       width="250px"
       lazy-src="https://c.tenor.com/-NoKc-auITEAAAAC/loading-buffering.gif"
+      :alt="product.name"
     ></v-img>
     <div>
       <v-card-title class="pb-1"> {{ product.name.toUpperCase() }} </v-card-title>
@@ -52,8 +53,8 @@ export default {
 
 <style lang="scss" scoped>
 .price {
-  font-family: "Rubik";
-  color: #207eeb;
+  font-family: "Rubik", sans-serif;
+  color: #002dc2;
   font-weight: 500;
   font-size: 20px;
 }
