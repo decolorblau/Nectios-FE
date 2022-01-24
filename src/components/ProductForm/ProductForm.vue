@@ -124,7 +124,7 @@ export default defineComponent({
   justify-content: center;
   &__title {
     font-size: 26px;
-    font-family: "Roboto, sans-serif";
+    font-family: "Roboto", sans-serif;
     font-weight: 400;
   }
 }
@@ -135,7 +135,6 @@ export default defineComponent({
 }
 .product-card {
   box-shadow: 0 0 10px rgba(32, 126, 235, 0.2);
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
 }
 .errorMessage {
   margin-top: 20px;
