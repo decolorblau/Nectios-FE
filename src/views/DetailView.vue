@@ -174,10 +174,8 @@ export default {
     display: flex;
     flex-direction: column;
     width: 100%;
-    padding-top: 10px;
     justify-content: center;
     align-items: center;
-    padding: 0;
     h2 {
       font-size: 24px;
     }
